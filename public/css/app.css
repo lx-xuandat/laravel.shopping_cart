@@ -1,0 +1,19 @@
+img.cart-thumbnail {
+    max-height: 150px;
+    padding: 3px;
+}
+
+.price {
+    padding    : 6px 12px;
+    font-weight: bold;
+    font-size  : 16px;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-text {
+    color: rgba(0, 0, 0, 0.65);
+}
+
