@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 class UserController extends Controller
 {
     public function getSignup()
@@ -27,8 +28,8 @@ class UserController extends Controller
         ]);
 
         $user->save();
-
-        return redirect()->route('product.index');
+        Auth::login($user);
+        return redirect()->route('user.profile');
     }
 
     public function getSignin()
@@ -53,8 +54,14 @@ class UserController extends Controller
         return redirect()->back();
     }
 
-    public function profile()
+    public function getProfile()
     {
         return view('user.profile');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->back();
     }
 }

@@ -15,8 +15,18 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', [ProductController::class, 'getIndex'])->name('product.index');
-Route::get('/signup', [UserController::class, 'getSignup'])->name('user.signup');
-Route::post('/signup', [UserController::class, 'postSignup'])->name('user.signup.post');
-Route::post('/signin', [UserController::class, 'postSignin'])->name('user.signin');
-Route::get('/signin', [UserController::class, 'getSignin'])->name('user.signin');
-Route::get('/profile', [UserController::class, 'profile'])->name('user.profile');
+
+Route::prefix('user')->group(function () {
+
+    Route::group(['middleware' => 'guest'], function () {
+        Route::get('/signup', [UserController::class, 'getSignup'])->name('user.signup');
+        Route::post('/signup', [UserController::class, 'postSignup'])->name('user.signup.post');
+        Route::post('/signin', [UserController::class, 'postSignin'])->name('user.signin');
+        Route::get('/signin', [UserController::class, 'getSignin'])->name('user.signin');
+    });
+
+    Route::group(['middleware' => 'auth'], function () {
+        Route::get('/profile', [UserController::class, 'getProfile'])->name('user.profile');
+        Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
+    });
+});

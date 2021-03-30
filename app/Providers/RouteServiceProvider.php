@@ -17,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/home';
+    public const HOME = '/'; // Duong dan trang home cho app cua ban
 
     /**
      * The controller namespace for the application.
