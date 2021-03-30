@@ -17,3 +17,6 @@ use App\Http\Controllers\UserController;
 Route::get('/', [ProductController::class, 'getIndex'])->name('product.index');
 Route::get('/signup', [UserController::class, 'getSignup'])->name('user.signup');
 Route::post('/signup', [UserController::class, 'postSignup'])->name('user.signup.post');
+Route::post('/signin', [UserController::class, 'postSignin'])->name('user.signin');
+Route::get('/signin', [UserController::class, 'getSignin'])->name('user.signin');
+Route::get('/profile', [UserController::class, 'profile'])->name('user.profile');
