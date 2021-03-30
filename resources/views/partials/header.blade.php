@@ -14,10 +14,11 @@
                     <i class="fa fa-user" aria-hidden="true"></i> Account
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="{{ route('user.signup') }}">Sign Up</a>
+                    <a class="dropdown-item" href="#">Sign In</a>
+                    <a class="dropdown-item" href="#">Profile</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something</a>
+                    <a class="dropdown-item" href="#">Logout</a>
                 </div>
             </li>
 

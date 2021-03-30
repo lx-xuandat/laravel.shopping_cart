@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [ProductController::class, 'getIndex'])->name('product.index');
+Route::get('/signup', [UserController::class, 'getSignup'])->name('user.signup');
+Route::post('/signup', [UserController::class, 'postSignup'])->name('user.signup.post');
