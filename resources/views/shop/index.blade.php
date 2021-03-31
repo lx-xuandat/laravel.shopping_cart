@@ -15,7 +15,8 @@
                             <p class="card-text">{{ $item->description }}</p>
                             <div>
                                 <div class="price float-left">${{ $item->price }}</div>
-                                <a href="#" class="btn btn-primary float-right">Add To Cart</a>
+                                <a href="{{ route('product.addToCart', ['id' => $item->id]) }}"
+                                    class="btn btn-primary float-right">Add To Cart</a>
                             </div>
                         </div>
                     </div>
