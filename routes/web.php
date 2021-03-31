@@ -16,6 +16,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [ProductController::class, 'getIndex'])->name('product.index');
 Route::get('/add-to-cart/{id}', [ProductController::class, 'getAddToCart'])->name('product.addToCart');
+Route::get('/shopping-cart', [ProductController::class, 'getCart'])->name('product.cart');
 
 Route::prefix('user')->group(function () {
 
