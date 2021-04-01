@@ -32,6 +32,22 @@
     </style>
 @endsection
 
+@section('scripts')
+    <script>
+        $(document).ready(function() {
+            $("#btnCheckout").on("click", function() {
+                window.location.href = "{{ route('product.checkout') }}";
+            });
+
+            //btnBackToShopping
+            $("#btnBackToShopping").on("click", function() {
+                window.location.href = "{{ route('product.index') }}";
+            });
+        });
+
+    </script>
+@endsection
+
 @section('content')
     <div class="container px-3 my-5 clearfix">
         <!-- Shopping cart table -->
@@ -104,14 +120,15 @@
                             </div>
                             <div class="text-right mt-4">
                                 <label class="text-muted font-weight-normal m-0">Total price</label>
-                                <div class="text-large"><strong>$1164.65</strong></div>
+                                <div class="text-large"><strong>$ <span>{{ $totalPrice }}</span></strong></div>
                             </div>
                         </div>
                     </div>
 
                     <div class="float-right">
-                        <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Back to shopping</button>
-                        <button type="button" class="btn btn-lg btn-primary mt-2">Checkout</button>
+                        <button type="button" id="btnBackToShopping"
+                            class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Back to shopping</button>
+                        <button type="button" id="btnCheckout" class="btn btn-lg btn-primary mt-2">Checkout</button>
                     </div>
                 @else
                     <div class="d-flex flex-wrap justify-content-between align-items-center pb-4">
@@ -119,7 +136,7 @@
                             <label class="text-muted font-weight-normal">No Items In Cart!</label>
                         </div>
                         <div class="d-flex">
-                            <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">
+                            <button type="button" id="btnBackToShopping" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">
                                 Back to shopping</button>
                         </div>
                     </div>
