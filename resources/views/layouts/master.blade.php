@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-<link rel="stylesheet" href="{{ URL::to('css/app.css') }}">
+    <link rel="stylesheet" href="{{ URL::to('css/app.css') }}">
     @yield('styles')
 </head>
 
@@ -20,6 +20,15 @@
     @include('partials.header')
 
     <div class="container">
+        <div class="mt-3 mb-3">
+            @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                @foreach ($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                @endforeach
+            </div>
+        @endif
+        </div>
         @yield('content')
     </div>
 

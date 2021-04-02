@@ -3,6 +3,9 @@
 @section('title', 'Shopping Cart')
 
 @section('scripts')
+
+    <script src="{{ URL::to('js/checkout.js') }}"></script>
+
     <script>
         $(document).ready(function() {
             $('input[type=radio][name=paymentMethod]').click(function() {
@@ -81,14 +84,15 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="firstName">First name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="" value=""
+                            required="">
                         <div class="invalid-feedback">
                             Valid first name is required.
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="lastName">Last name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                        <input type="text" class="form-control" name="lastName" id="lastName" placeholder="" value="" required="">
                         <div class="invalid-feedback">
                             Valid last name is required.
                         </div>
@@ -97,7 +101,7 @@
 
                 <div class="mb-3">
                     <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="you@example.com">
                     <div class="invalid-feedback">
                         Please enter a valid email address for shipping updates.
                     </div>
@@ -105,7 +109,7 @@
 
                 <div class="mb-3">
                     <label for="address">Address</label>
-                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
+                    <input type="text" class="form-control" name="address" id="address" placeholder="1234 Main St" required="">
                     <div class="invalid-feedback">
                         Please enter your shipping address.
                     </div>
@@ -150,16 +154,16 @@
 
                 <div class="d-block my-3">
                     <div class="custom-control custom-radio">
-                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked=""
+                        <input id="credit" value="credit" name="paymentMethod" type="radio" class="custom-control-input" checked=""
                             required="">
                         <label class="custom-control-label" for="credit">Credit card</label>
                     </div>
                     <div class="custom-control custom-radio">
-                        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
+                        <input id="debit" value="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
                         <label class="custom-control-label" for="debit">Debit card</label>
                     </div>
                     <div class="custom-control custom-radio">
-                        <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
+                        <input id="paypal" value="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
                         <label class="custom-control-label" for="paypal">Paypal</label>
                     </div>
                     <div class="custom-control custom-radio">

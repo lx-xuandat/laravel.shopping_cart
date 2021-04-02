@@ -5,14 +5,6 @@
 @section('content')
     <h1>Sign Up</h1>
 
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            @foreach ($errors->all() as $error)
-                <p>{{ $error }}</p>
-            @endforeach
-        </div>
-    @endif
-
     <form method="POST" action="{{ route('user.signup.post') }}">
         {{ csrf_field() }}
         <div class="form-group row">

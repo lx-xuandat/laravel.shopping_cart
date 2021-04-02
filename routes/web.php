@@ -18,7 +18,7 @@ Route::get('/', [ProductController::class, 'getIndex'])->name('product.index');
 Route::get('/add-to-cart/{id}', [ProductController::class, 'getAddToCart'])->name('product.addToCart');
 Route::get('/shopping-cart', [ProductController::class, 'getCart'])->name('product.cart');
 Route::get('/checkout', [ProductController::class, 'getCheckout'])->name('product.checkout');
-Route::post('/checkout', [ProductController::class, 'postCheckout'])->name('checkout.post');
+Route::post('/checkout', [ProductController::class, 'postCheckout'])->name('checkout.post')->middleware('auth');
 
 Route::prefix('user')->group(function () {
 
