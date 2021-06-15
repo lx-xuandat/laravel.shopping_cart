@@ -4,24 +4,25 @@
 
 @section('content')
     <h1>Shop index</h1>
-
-    <div class="row mb-3">
-        @for ($i = 0; $i < 100; $i++)
-            <div class="col-sm-3 mt-3">
-                <div class="card">
-                    <img src="https://salt.tikicdn.com/cache/280x280/ts/product/fc/7b/b0/88008acfabf8bbc7a6a7276025b19fab.jpg"
-                        class="img-reponsive card-img-top cart-thumbnail" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
-                        <div>
-                            <div class="price float-left">$12</div>
-                            <a href="#" class="btn btn-primary float-right">Add To Cart</a>
+    @foreach ($products->chunk(4) as $productChunk)
+        <div class="row mb-3">
+            @foreach ($productChunk as $item)
+                <div class="col-sm-3 mt-3">
+                    <div class="card">
+                        <img src="{{ $item->imagePath }}" class="img-reponsive card-img-top cart-thumbnail" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $item->title }}</h5>
+                            <p class="card-text">{{ $item->description }}</p>
+                            <div>
+                                <div class="price float-left">${{ $item->price }}</div>
+                                <a href="{{ route('product.addToCart', ['id' => $item->id]) }}"
+                                    class="btn btn-primary float-right">Add To Cart</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        @endfor
-    </div>
+            @endforeach
+        </div>
+    @endforeach
+
 @endsection

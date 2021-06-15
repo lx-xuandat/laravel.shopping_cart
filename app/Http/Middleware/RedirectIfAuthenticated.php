@@ -7,6 +7,9 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * khi truy cap vao link login hoac sign up, neu da login in roi thi auto redirect sang url khac
+ */
 class RedirectIfAuthenticated
 {
     /**
@@ -23,7 +26,9 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                // return redirect(RouteServiceProvider::HOME);
+                // hoac co the su dung cach sau de redirect url khi da login
+                return redirect()->route('product.index');
             }
         }
 
